@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bruhi Group</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    .hero {
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(40%);
+    }
+
+    .logo-overlay {
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      z-index: 10;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    }
+
+    .hero-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+    }
+
+    .card-3d {
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .card-3d:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 20px 30px rgba(0,0,0,0.3);
+    }
+
+    .testimonial-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  .scroll-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.scroll-content {
+  display: flex;
+  white-space: nowrap;
+}
+
+.scroll-track {
+  display: flex;
+  animation: scroll-left 25s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.brand-card {
+  min-width: 150px;
+  padding: 10px 15px;
+  border: none;
+  background: #f8f9fa;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-card img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 8px;
+  object-fit: contain;
+}
+
+body.dark-theme {
+  background-color: #0b1e35 !important;
+  color: #ffffff !important;
+}
+
+.dark-theme .bg-white {
+  background-color: #122b47 !important;
+  color: #ffffff !important;
+}
+
+.dark-theme .text-dark {
+  color: #ffffff !important;
+}
+
+.dark-theme .card,
+.dark-theme .modal-content,
+.dark-theme .brand-card {
+  background-color: #1b3552 !important;
+  color: #ffffff !important;
+  border-color: #2a476b !important;
+}
+
+.dark-theme .btn-outline-secondary {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.dark-theme a {
+  color: #a3d0ff !important;
+}
+.hero-title {
+  color: #000 !important; /* Force black in light mode */
+}
+
+body.dark-theme .hero-title {
+  color: #fff !important; /* White in dark mode */
+}
+#themeToggleBtn {
+  color: #000;
+  border-color: #000;
+}
+
+body.dark-theme #themeToggleBtn {
+  color: #fff !important;
+  border-color: #fff !important;
+}
+
+.logo-overlay {
+  color: #000 !important; /* black in light mode */
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  z-index: 10;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.4); /* optional light glow */
+}
+
+body.dark-theme .logo-overlay {
+  color: #fff !important; /* white in dark mode */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+  </style>
+
+</head>
+<!-- Consultation Modal -->
+<!-- Consultation Modal -->
+<div class="modal fade" id="consultationModal" tabindex="-1" aria-labelledby="consultationModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 shadow-lg bg-white">
+      <div class="modal-header bg-white border-bottom">
+        <h5 class="modal-title" id="consultationModalLabel">Request a Consultation</h5>
+        
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center py-4">
+        <p class="mb-4 d-flex align-items-center justify-content-center">
+          <i class="bi bi-envelope-fill text-primary fs-5 me-2"></i>
+          <a href="mailto:info@apexworkforcesolutions.com" class="text-dark text-decoration-none fs-5">
+            info@apexworkforcesolutions.com
+          </a>
+        </p>
+        <p class="d-flex align-items-center justify-content-center">
+          <i class="bi bi-telephone-fill text-success fs-5 me-2"></i>
+          <a href="tel:+1234567890" class="text-dark text-decoration-none fs-5">
+            +1 (123) 456-7890
+          </a>
+        </p>
+      </div>
+      <div class="modal-footer bg-white border-top justify-content-center">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<body>
+
+<!-- Logo text overlay -->
+<div class="logo-overlay">Bruhi Groups</div>
+
+<!-- Dark Mode Toggle Button -->
+<button id="themeToggleBtn" class="btn btn-sm btn-outline-dark position-fixed top-0 end-0 m-3 z-3">
+  Dark Mode
+</button>
+
+
+
+<!-- Hero Section -->
+<section id="home" class="hero d-flex align-items-center" style="height: 100vh; overflow: hidden;">
+  <div class="container">
+    <div class="row align-items-center text-white">
+      
+      <!-- Text and animation combined for proper order on mobile -->
+      <div class="col-md-6 order-2 order-md-1 text-center text-md-start">
+        <h1 class="display-5 fw-bold hero-title">Connecting Businesses with Top-Tier Talent</h1>
+
+        <p class="lead">Streamlining your hiring process and delivering exceptional workforce solutions.</p>
+
+     
+ 
+        <a href="#" class="btn btn-primary btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#consultationModal">Request a Consultation</a>
+
+      </div>
+
+      <!-- Animation for desktop (side-by-side) -->
+      <div class="col-md-6 order-1 order-md-2 d-none d-md-block text-center">
+        <img src="https://raw.githubusercontent.com/fahadrafique/bruhi/refs/heads/main/connecting.gif" alt="Workforce Animation" class="img-fluid" style="max-height: 400px;">
+      </div>
+
+    </div>
+  </div>
+
+
+</section>
+
+<!-- Trusted by Leading Brands -->
+<!-- Trusted by Leading Brands (Animated Scroll) -->
+<div class="bg-white py-4">
+  <div class="container">
+    <h5 class="text-center mb-4 fw-semibold">Trusted by Leading Brands</h5>
+    <div class="scroll-wrapper overflow-hidden">
+      <div class="scroll-content d-flex align-items-center">
+        <!-- Repeat group for seamless looping -->
+        <div class="scroll-track d-flex">
+          
+          <!-- Brand Card -->
+          <div class="card brand-card mx-2 text-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/732/732221.png" alt="Microsoft">
+            <p class="mb-0">Microsoft</p>
+          </div>
+
+          <div class="card brand-card mx-2 text-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/888/888879.png" alt="Amazon">
+            <p class="mb-0">Amazon</p>
+          </div>
+
+          <div class="card brand-card mx-2 text-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="Google">
+            <p class="mb-0">Google</p>
+          </div>
+
+          <div class="card brand-card mx-2 text-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111398.png" alt="Netflix">
+            <p class="mb-0">Netflix</p>
+          </div>
+
+          <div class="card brand-card mx-2 text-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Apple">
+            <p class="mb-0">Apple</p>
+          </div>
+
+          <!-- Repeat again for looping effect -->
+          <div class="card brand-card mx-2 text-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/732/732221.png" alt="Microsoft">
+            <p class="mb-0">Microsoft</p>
+          </div>
+
+          <div class="card brand-card mx-2 text-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/888/888879.png" alt="Amazon">
+            <p class="mb-0">Amazon</p>
+          </div>
+
+          <div class="card brand-card mx-2 text-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="Google">
+            <p class="mb-0">Google</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Services Section 
+<section id="services" class="py-5 bg-light">
+  <div class="container text-center">
+    <h2 class="mb-5">Our Services</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card card-3d h-100 p-4">
+          <div style="font-size:50px;">🎯</div>
+          <h4>Specialized Recruitment</h4>
+          <p>Focused talent acquisition tailored for your business.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-3d h-100 p-4">
+          <div style="font-size:50px;">⏳</div>
+          <h4>Temporary Staffing</h4>
+          <p>Flexible staffing options to meet dynamic demands.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-3d h-100 p-4">
+          <div style="font-size:50px;">🏆</div>
+          <h4>Permanent Placements</h4>
+          <p>Reliable, long-term talent solutions for sustained success.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>-->
+  
+  <!-- Services Section - Full Width Alternating Cards -->
+<!-- Services Section - Modern Alternating with Animated GIFs -->
+<section id="services" class="pt-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Our Services</h2>
+  </div>
+
+  <!-- Service 1 -->
+  <div class="py-5 bg-service-light">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-start">
+          <h3>Specialized Recruitment</h3>
+          <p>We source highly skilled professionals across industries to perfectly match your business needs.</p>
+        </div>
+        <div class="col-md-6 text-center">
+          <img src="https://raw.githubusercontent.com/fahadrafique/bruhi/refs/heads/main/rec1.jpg" alt="Specialized Recruitment" class="img-fluid" style="max-height: 300px;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service 2 -->
+  <div class="py-5 bg-white">
+    <div class="container">
+      <div class="row align-items-center flex-md-row-reverse">
+        <div class="col-md-6 text-start">
+          <h3>Temporary Staffing</h3>
+          <p>Flexible and fast staffing for short-term needs, events, and urgent workforce gaps.</p>
+        </div>
+        <div class="col-md-6 text-center">
+          <img src="https://raw.githubusercontent.com/fahadrafique/bruhi/refs/heads/main/rec2.jpg" alt="Temporary Staffing" class="img-fluid" style="max-height: 300px;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service 3 -->
+  <div class="py-5 bg-service-light">
+
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-start">
+          <h3>Permanent Placements</h3>
+          <p>Find the right talent to grow with your business — committed professionals for long-term success.</p>
+        </div>
+        <div class="col-md-6 text-center">
+          <img src="https://raw.githubusercontent.com/fahadrafique/bruhi/refs/heads/main/rec3.jpg" alt="Permanent Placement" class="img-fluid" style="max-height: 300px;">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="py-5">
+  <div class="container text-center">
+    <h2 class="mb-5">Client Testimonials</h2>
+    <div class="card shadow mx-auto p-4" style="max-width:700px;">
+      <img src="https://randomuser.me/api/portraits/men/10.jpg" class="testimonial-img mx-auto mb-3">
+      <blockquote>"Apex Workforce Solutions consistently provided us with outstanding professionals. Highly recommended!"</blockquote>
+      <footer>– Fahad, CEO at Aorbe Global LLC</footer>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-5 bg-dark text-white text-center">
+  <div class="container">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:info@apexworkforcesolutions.com" class="text-warning">info@apexworkforcesolutions.com</a></p>
+    <p>Phone: (123) 456-7890</p>
+    <a href="mailto:info@apexworkforcesolutions.com" class="btn btn-warning btn-lg mt-3">Get in Touch</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-secondary text-center text-white py-3">
+  &copy; 2025 Apex Workforce Solutions. All Rights Reserved.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  const themeBtn = document.getElementById('themeToggleBtn');
+  themeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+    themeBtn.innerText = document.body.classList.contains('dark-theme') ? 'Light Mode' : 'Dark Mode';
+  });
+</script>
+  
+</body>
+</html>
