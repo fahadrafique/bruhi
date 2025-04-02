@@ -168,6 +168,9 @@ body.dark-theme .logo-overlay {
   color: #fff !important; /* white in dark mode */
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
 }
+.hero-content-adjust {
+  margin-top: 80px; /* Adjust as needed */
+}
 
   </style>
 
@@ -222,27 +225,31 @@ body.dark-theme .logo-overlay {
   <div class="container">
     <div class="row align-items-center text-white">
       
-      <!-- Text and animation combined for proper order on mobile -->
-      <div class="col-md-6 order-2 order-md-1 text-center text-md-start">
-        <h1 class="display-5 fw-bold hero-title">Connecting Businesses with Top-Tier Talent</h1>
+      <!-- LEFT SIDE (Text) -->
+      <div class="col-md-6 order-2 order-md-1 text-center text-md-start hero-content-adjust">
+<h1 class="display-5 fw-bold hero-title mb-3">Connecting Businesses with Top-Tier Talent</h1>
 
-        <p class="lead">Streamlining your hiring process and delivering exceptional workforce solutions.</p>
+<!-- Mobile Image, closer to content -->
+<div class="d-block d-md-none mb-3">
+  <img src="https://raw.githubusercontent.com/fahadrafique/bruhi/refs/heads/main/repacking.jpg" alt="Workforce Animation" class="img-fluid" style="max-height: 250px;">
+</div>
 
-     
- 
+<p class="lead mb-3">Streamlining your hiring process and delivering exceptional workforce solutions.</p>
+
+
         <a href="#" class="btn btn-primary btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#consultationModal">Request a Consultation</a>
-
       </div>
 
-      <!-- Animation for desktop (side-by-side) 
+      <!-- RIGHT SIDE (Image for Desktop) -->
       <div class="col-md-6 order-1 order-md-2 d-none d-md-block text-center">
-        <img src="https://raw.githubusercontent.com/fahadrafique/bruhi/refs/heads/main/connecting.gif" alt="Workforce Animation" class="img-fluid" style="max-height: 400px;">
-      </div>-->
-      <div class="col-md-6 order-1 order-md-2 text-center">
         <img src="https://raw.githubusercontent.com/fahadrafique/bruhi/refs/heads/main/repacking.jpg" alt="Workforce Animation" class="img-fluid" style="max-height: 400px;">
       </div>
+
     </div>
   </div>
+</section>
+
+
 
 
 </section>
