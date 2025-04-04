@@ -191,9 +191,72 @@ body.dark-theme .lead {
   color: #fff !important; /* White text in dark mode */
 }
 .custom-navbar {
-  background-color: #0c585c !important; /* dark navy */
-} 
-    
+  background: linear-gradient(to right, #0c5155, #196d71, #3c98a1, #196d71, #0c5155);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  z-index: 999;
+  position: relative;
+}
+
+/* Glossy shine on top */
+.custom-navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50%;
+  width: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0.08), rgba(255,255,255,0.15), rgba(255,255,255,0.08));
+  pointer-events: none;
+  z-index: 0;
+}
+.navbar-nav {
+  position: relative;
+  z-index: 2;
+}
+.custom-navbar .nav-link,
+.custom-navbar .navbar-brand {
+  color: #ffffff !important;
+  font-weight: 600;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+.custom-navbar .nav-link {
+  position: relative;
+  color: #ffffff !important;
+  font-weight: 600;
+  margin-left: 15px;
+  transition: all 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+  z-index: 1;
+}
+
+.custom-navbar .nav-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -5%;
+  width: 110%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  transform: skewX(-20deg) scaleX(0);
+  transition: transform 0.4s ease;
+  border-radius: 6px;
+  z-index: -1;
+}
+
+.custom-navbar .nav-link:hover::before {
+  transform: skewX(-20deg) scaleX(1);
+}
+
+.custom-navbar .nav-link:hover {
+  color: #ffffff !important;
+  text-shadow: 0 0 8px #ffffff, 0 0 12px #7fffd4;
+  font-weight: 700;
+}
+
 .custom-navbar .nav-link {
   color: #ffffff !important; /* light blue/navy text */
   font-weight: 500;
@@ -439,7 +502,7 @@ Connecting Businesses with Top-Tier Talent</h1>
     </div>
   </div>
 </section>
-
+<!---------------------->
 <!--Trusted by Leading Brands -->
 <div class="bg-white py-4 trusted-section">
   <div class="container">
