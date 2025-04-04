@@ -228,6 +228,63 @@ body.dark-theme .lead {
   .navbar-toggler.toggled .close-icon {
     display: inline;
   }
+.navbar-collapse {
+  transform-origin: top right;
+  transform: scaleY(0.95) rotateX(-10deg);
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+}
+
+.navbar-collapse.show {
+  transform: scaleY(1) rotateX(0deg);
+  opacity: 1;
+}
+/* 3D Button Style */
+.btn-3d {
+    background: linear-gradient(to bottom, #0d575b, #2b8f95);
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 0 #288d94;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-3d:active {
+  box-shadow: 0 2px 0 #0d575b;
+  transform: translateY(3px);
+}
+
+.btn-3d:hover {
+  background: linear-gradient(to bottom, #0d575b, #2b8f95);
+  color: #fff;
+} 
+/* Glossy Modern Font Style */
+.glossy-text {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  background: linear-gradient(145deg, #00c6ff, #0072ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* 3D pop animation on load */
+.animate-fade-3d {
+  opacity: 0;
+  transform: scale(0.95) translateY(20px);
+  animation: fadeInPop 0.8s ease-out forwards;
+}
+
+@keyframes fadeInPop {
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
 
   </style>
 
@@ -326,13 +383,13 @@ Connecting Businesses with Top-Tier Talent</h1>
 <!-- Button -->
 <div class="d-flex justify-content-md-start justify-content-center">
   <a href="#" 
-     class="btn btn-primary mt-2 px-4 py-2 fs-6"
+     class="btn btn-3d btn-primary mt-2 px-4 py-2 fs-6"
      data-bs-toggle="modal" 
      data-bs-target="#consultationModal"
      style="white-space: nowrap;">
     Request a Consultation
   </a>
-</div>
+</div> 
 
 
 
