@@ -190,11 +190,80 @@ body.dark-theme .logo-overlay {
 body.dark-theme .lead {
   color: #fff !important; /* White text in dark mode */
 }
+.custom-navbar {
+  background-color: #0c585c !important; /* dark navy */
+} 
+    
+.custom-navbar .nav-link {
+  color: #ffffff !important; /* light blue/navy text */
+  font-weight: 500;
+  margin-left: 15px;
+  transition: color 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link.active {
+  color: #ffffff !important;
+}
+
+.custom-navbar .navbar-brand {
+  color: #ffffff !important;
+  font-size: 1.2rem;
+}
+  .custom-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255,255,255,0.7)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    width: 1.5em;
+    height: 1.5em;
+  }
+
+  .navbar-toggler .close-icon {
+    font-size: 1.8rem;
+    color: white;
+  }
+
+  .navbar-toggler.toggled .navbar-toggler-icon {
+    display: none;
+  }
+
+  .navbar-toggler.toggled .close-icon {
+    display: inline;
+  }
 
   </style>
 
-</head>
-<!-- Consultation Modal -->
+</head> 
+  
+  <!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm custom-navbar">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#home">Bruhi Repacking</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> 
+      <span class="navbar-toggler-icon custom-toggler-icon"></span>
+<span class="close-icon d-none">&times;</span>
+
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="document.getElementById('services').scrollIntoView({ behavior: 'smooth' }); return false;">Our Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="document.getElementById('team').scrollIntoView({ behavior: 'smooth' }); return false;">Our Team</a>
+        </li>
+        <li class="nav-item"> 
+          <a class="nav-link" href="#" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); return false;">Contact Us</a> 
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
 <!-- Consultation Modal -->
 <div class="modal fade" id="consultationModal" tabindex="-1" aria-labelledby="consultationModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
@@ -207,9 +276,9 @@ body.dark-theme .lead {
       <div class="modal-body text-center py-4">
         <p class="mb-4 d-flex align-items-center justify-content-center">
           <i class="bi bi-envelope-fill text-primary fs-5 me-2"></i>
-          <a href="mailto:info@apexworkforcesolutions.com" class="text-dark text-decoration-none fs-5">
+          <!--<a href="mailto:info@apexworkforcesolutions.com" class="text-dark text-decoration-none fs-5">
             info@apexworkforcesolutions.com
-          </a>
+          </a>-->
         </p>
         <p class="d-flex align-items-center justify-content-center">
           <i class="bi bi-telephone-fill text-success fs-5 me-2"></i>
@@ -229,13 +298,13 @@ body.dark-theme .lead {
 
 <body>
 
-<!-- Logo text overlay -->
-<div class="logo-overlay">Bruhi Repacking</div>
+<!-- Logo text overlay 
+<div class="logo-overlay">Bruhi Repacking</div>-->
 
-<!-- Dark Mode Toggle Button -->
+<!-- Dark Mode Toggle Button 
 <button id="themeToggleBtn" class="btn btn-sm btn-outline-dark position-fixed top-0 end-0 m-3 z-3">
   Dark Mode
-</button>
+</button>-->
 
 
 <section id="home" class="hero">
@@ -279,15 +348,14 @@ Connecting Businesses with Top-Tier Talent</h1>
   </div>
 </section>
 
-<!-- Trusted by Leading Brands -->
+<!--Trusted by Leading Brands -->
 <div class="bg-white py-4 trusted-section">
   <div class="container">
     <h5 class="text-center mb-4 fw-semibold">Trusted by Leading Brands</h5>
 <div class="scroll-wrapper overflow-hidden">
   <div class="scroll-content d-flex justify-content-center align-items-center">
     <div class="scroll-track d-flex justify-content-center">
-
-          <!-- Brand Cards -->
+ 
           <div class="card brand-card mx-2 text-center">
             <img src="https://cdn-icons-png.flaticon.com/512/732/732221.png" alt="Microsoft">
             <p class="mb-0">Microsoft</p>
@@ -314,36 +382,8 @@ Connecting Businesses with Top-Tier Talent</h1>
     </div>
   </div>
 </div>
-<!-- Services Section 
-<section id="services" class="py-5 bg-light">
-  <div class="container text-center">
-    <h2 class="mb-5">Our Services</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card card-3d h-100 p-4">
-          <div style="font-size:50px;">🎯</div>
-          <h4>Specialized Recruitment</h4>
-          <p>Focused talent acquisition tailored for your business.</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card card-3d h-100 p-4">
-          <div style="font-size:50px;">⏳</div>
-          <h4>Temporary Staffing</h4>
-          <p>Flexible staffing options to meet dynamic demands.</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card card-3d h-100 p-4">
-          <div style="font-size:50px;">🏆</div>
-          <h4>Permanent Placements</h4>
-          <p>Reliable, long-term talent solutions for sustained success.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>-->
   
+ 
   <!-- Services Section - Full Width Alternating Cards -->
 <!-- Services Section - Modern Alternating with Animated GIFs -->
 <section id="services" class="pt-5">
@@ -356,11 +396,11 @@ Connecting Businesses with Top-Tier Talent</h1>
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md-6 text-start">
-          <h3>Specialized Recruitment</h3>
-          <p>We source highly skilled professionals across industries to perfectly match your business needs.</p>
+          <h3>Custom Packing</h3>
+          <p>Transform your packaging with bespoke cartoon designs that capture your brand's personality and charm your customers.</p>
         </div>
         <div class="col-md-6 text-center">
-          <img src="https://raw.githubusercontent.com/fahadrafique/bruhi/refs/heads/main/rec1.jpg" alt="Specialized Recruitment" class="img-fluid" style="max-height: 300px;">
+          <img src="https://raw.githubusercontent.com/fahadrafique/bruhi/refs/heads/main/packing1.png" alt="Specialized Recruitment" class="img-fluid" style="max-height: 300px;">
         </div>
       </div>
     </div>
@@ -371,11 +411,11 @@ Connecting Businesses with Top-Tier Talent</h1>
     <div class="container">
       <div class="row align-items-center flex-md-row-reverse">
         <div class="col-md-6 text-start">
-          <h3>Temporary Staffing</h3>
-          <p>Flexible and fast staffing for short-term needs, events, and urgent workforce gaps.</p>
+          <h3>Eco-Friendly Wrapping</h3>
+          <p>We use recyclable, sustainable materials to protect both your items and the environment.</p>
         </div>
         <div class="col-md-6 text-center">
-          <img src="https://raw.githubusercontent.com/fahadrafique/bruhi/refs/heads/main/rec2.jpg" alt="Temporary Staffing" class="img-fluid" style="max-height: 300px;">
+          <img src="https://raw.githubusercontent.com/fahadrafique/bruhi/refs/heads/main/packing3.jpg" alt="Temporary Staffing" class="img-fluid" style="max-height: 300px;">
         </div>
       </div>
     </div>
@@ -387,20 +427,78 @@ Connecting Businesses with Top-Tier Talent</h1>
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md-6 text-start">
-          <h3>Permanent Placements</h3>
-          <p>Find the right talent to grow with your business — committed professionals for long-term success.</p>
+          <h3>Fast Turnaround</h3>
+          <p>We guarantee quick, high-quality repacking and delivery service for businesses and individuals.</p>
         </div>
         <div class="col-md-6 text-center">
-          <img src="https://raw.githubusercontent.com/fahadrafique/bruhi/refs/heads/main/rec3.jpg" alt="Permanent Placement" class="img-fluid" style="max-height: 300px;">
+          <img src="https://raw.githubusercontent.com/fahadrafique/bruhi/refs/heads/main/packing2.jpg" alt="Permanent Placement" class="img-fluid" style="max-height: 300px;">
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- TEAM  
+<section id="services" class="py-5 bg-light"> -->  
+<section id="team" class="py-5 bg-light" style="scroll-margin-top: 80px;">
+  <div class="container text-center">
+    <h2 class="mb-5">Our Team</h2>
+    <div class="row g-4">
+
+      <!-- Team Member 1 -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card card-3d h-100 p-3">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 100px; height: 100px; object-fit: cover;" alt="John">
+          <div class="card-body text-center">
+            <h5 class="card-title mb-1">John Smith</h5>
+            <p class="mb-1">📞 +971 50 111 2233</p>
+            <p class="text-muted">Operations Manager</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team Member 2 -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card card-3d h-100 p-3">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 100px; height: 100px; object-fit: cover;" alt="Sarah">
+          <div class="card-body text-center">
+            <h5 class="card-title mb-1">Sarah Ali</h5>
+            <p class="mb-1">📞 +971 50 222 3344</p>
+            <p class="text-muted">HR Supervisor</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team Member 3 -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card card-3d h-100 p-3">
+          <img src="https://randomuser.me/api/portraits/men/76.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 100px; height: 100px; object-fit: cover;" alt="Ahmed">
+          <div class="card-body text-center">
+            <h5 class="card-title mb-1">Ahmed Khan</h5>
+            <p class="mb-1">📞 +971 50 333 4455</p>
+            <p class="text-muted">Logistics Head</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team Member 4 -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card card-3d h-100 p-3">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 100px; height: 100px; object-fit: cover;" alt="Fatima">
+          <div class="card-body text-center">
+            <h5 class="card-title mb-1">Fatima Noor</h5>
+            <p class="mb-1">📞 +971 50 444 5566</p>
+            <p class="text-muted">Client Relations</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 
-<!-- Testimonials Section -->
+<!-- Testimonials Section 
 <section id="testimonials" class="py-5">
   <div class="container text-center">
     <h2 class="mb-5">Client Testimonials</h2>
@@ -410,21 +508,38 @@ Connecting Businesses with Top-Tier Talent</h1>
       <footer>– Fahad, CEO at Aorbe Global LLC</footer>
     </div>
   </div>
-</section>
+</section>-->
 
-<!-- Contact Section -->
+<!-- Contact Section 
 <section id="contact" class="py-5 bg-dark text-white text-center">
   <div class="container">
     <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:info@apexworkforcesolutions.com" class="text-warning">info@apexworkforcesolutions.com</a></p>
-    <p>Phone: (123) 456-7890</p>
+    <!--<p>Email: <a href="mailto:info@apexworkforcesolutions.com" class="text-warning">info@apexworkforcesolutions.com</a></p>
+    <p>Phone: +971 50 768 3592</p>
     <a href="mailto:info@apexworkforcesolutions.com" class="btn btn-warning btn-lg mt-3">Get in Touch</a>
   </div>
-</section>
+</section>-->
 
+ <section id="contact" class="py-5 bg-dark text-white text-center">
+  <div class="container">
+    <h2 class="mb-4">Contact Us</h2>
+    <p class="mb-2">Phone: +971 50 768 3592</p>
+
+    <!-- Google Map Embed -->
+    <div class="mt-4">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3609.978008651765!2d55.2707824!3d25.2048496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f4348659b6ab7%3A0xc3d94ad6a3ccfcae!2sBurj%20Khalifa!5e0!3m2!1sen!2sae!4v1681211123456"
+        width="100%" height="350" style="border:0; border-radius:10px;"
+        allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section> 
+  
 <!-- Footer -->
 <footer class="bg-secondary text-center text-white py-3">
-  &copy; 2025 Apex Workforce Solutions. All Rights Reserved.
+  &copy; 2025 Adorbe Global LLC. All Rights Reserved.
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -435,7 +550,27 @@ Connecting Businesses with Top-Tier Talent</h1>
     document.body.classList.toggle('dark-theme');
     themeBtn.innerText = document.body.classList.contains('dark-theme') ? 'Light Mode' : 'Dark Mode';
   });
+  </script>
+<script>
+  const toggler = document.querySelector('.navbar-toggler');
+  const navbarCollapse = document.getElementById('navbarNav');
+
+  toggler.addEventListener('click', () => {
+    toggler.classList.toggle('toggled');
+  });
+
+  // Auto-close menu and reset icon when a link is clicked (mobile)
+  document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      const isShown = navbarCollapse.classList.contains('show');
+      if (isShown) {
+        const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+        bsCollapse.hide();
+        toggler.classList.remove('toggled');
+      }
+    });
+  });
 </script>
-  
+
 </body>
 </html>
