@@ -1,851 +1,880 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bruhi Repacking</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bruhi Repacking</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
 
-  <style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    scroll-behavior: smooth;
+    <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+  .hero {
+    height: auto; /* allow height to adjust */
+    padding-top: 1px; /* pushes content below the logo */
+    padding-bottom: 60px; /* keeps spacing clean */
+    position: relative;
+  }
+  .hero {
+    min-height: 70vh;
   }
 
-.hero {
-  height: auto; /* allow height to adjust */
-  padding-top: 1px; /* pushes content below the logo */
-  padding-bottom: 60px; /* keeps spacing clean */
-  position: relative;
-}
-.hero {
-  min-height: 70vh;
-}
 
+    @media (min-width: 768px) {
+      .hero {
+        min-height: 70vh; /* Smaller height on desktop */
+          padding-top: 100px;
+      }
+    } 
 
-  @media (min-width: 768px) {
-    .hero {
-      min-height: 70vh; /* Smaller height on desktop */
-        padding-top: 100px;
+    .hero video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(40%);
     }
-  } 
 
-  .hero video {
+      .logo-overlay {
+        position: absolute;
+        top: 20px;
+        left: 30px;
+        color: white;
+        font-size: 1.5rem;
+        font-weight: bold;
+        z-index: 10;
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+      }
+
+      .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+      }
+
+      .card-3d {
+        transition: transform .3s, box-shadow .3s;
+      }
+
+      .card-3d:hover {
+        transform: translateY(-10px) scale(1.05);
+        box-shadow: 0 20px 30px rgba(0,0,0,0.3);
+      }
+
+      .testimonial-img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    .scroll-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .scroll-content {
+    display: flex;
+    white-space: nowrap;
+  }
+
+  .scroll-track {
+    display: flex;
+    animation: scroll-left 25s linear infinite;
+  }
+
+  @keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .brand-card {
+    min-width: 150px;
+    padding: 10px 15px;
+    border: none;
+    background: #f8f9fa;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .brand-card img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
+    object-fit: contain;
+  }
+
+  body.dark-theme {
+    background-color: #0b1e35 !important;
+    color: #ffffff !important;
+  }
+
+  .dark-theme .bg-white {
+    background-color: #122b47 !important;
+    color: #ffffff !important;
+  }
+
+  .dark-theme .text-dark {
+    color: #ffffff !important;
+  }
+
+  .dark-theme .card,
+  .dark-theme .modal-content,
+  .dark-theme .brand-card {
+    background-color: #1b3552 !important;
+    color: #ffffff !important;
+    border-color: #2a476b !important;
+  }
+
+  .dark-theme .btn-outline-secondary {
+    color: #ffffff;
+    border-color: #ffffff;
+  }
+
+  .dark-theme a {
+    color: #a3d0ff !important;
+  }
+  .hero-title {
+    color: #000 !important; /* Force black in light mode */
+  }
+
+  body.dark-theme .hero-title {
+    color: #fff !important; /* White in dark mode */
+  }
+  #themeToggleBtn {
+    color: #000;
+    border-color: #000;
+  }
+
+  body.dark-theme #themeToggleBtn {
+    color: #fff !important;
+    border-color: #fff !important;
+  }
+
+  .logo-overlay {
+    color: #000 !important; /* black in light mode */
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    z-index: 10;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.4); /* optional light glow */
+  }
+
+  body.dark-theme .logo-overlay {
+    color: #fff !important; /* white in dark mode */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+  }
+  .hero-content-adjust {
+    margin-top: 80px; /* Adjust as needed */
+  }
+  .lead {
+    color: #000 !important; /* Black text in light mode */
+  }
+
+  body.dark-theme .lead {
+    color: #fff !important; /* White text in dark mode */
+  }
+  .custom-navbar {
+    position: sticky;
+    top: 0;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
+  }
+ 
+  /* Glossy shine on top */
+  .custom-navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50%;
+    width: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0.08), rgba(255,255,255,0.15), rgba(255,255,255,0.08));
+    pointer-events: none;
+    z-index: 0;
+  }
+  .navbar-nav {
+    position: relative;
+    z-index: 2;
+  }
+  .custom-navbar .nav-link,
+  .custom-navbar .navbar-brand {
+    color: #000000 !important;
+    font-weight: 600;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+  }
+  .custom-navbar .nav-link {
+    position: relative;
+    color: #000000 !important;
+    font-weight: 600;
+    margin-left: 15px;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    z-index: 1;
+  }
+
+  .custom-navbar .nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -5%;
+    width: 110%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    transform: skewX(-20deg) scaleX(0);
+    transition: transform 0.4s ease;
+    border-radius: 6px;
+    z-index: -1;
+  }
+
+  .custom-navbar .nav-link:hover::before {
+    transform: skewX(-20deg) scaleX(1);
+  }
+
+  .custom-navbar .nav-link:hover {
+    color: #000000 !important;
+    text-shadow: 0 0 8px #ffffff, 0 0 12px #7fffd4;
+    font-weight: 700;
+  }
+
+  .custom-navbar .nav-link {
+    color: #000000 !important;  
+    font-weight: 500;
+    margin-left: 15px;
+    transition: color 0.3s ease;
+  }
+
+  .custom-navbar .nav-link:hover,
+  .custom-navbar .nav-link.active {
+    color: #000000 !important;
+  }
+
+  .custom-navbar .navbar-brand {
+    color: #000000 !important;
+    font-size: 1.2rem;
+  }
+    .custom-toggler-icon {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255,255,255,0.7)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+      width: 1.5em;
+      height: 1.5em;
+    }
+
+    .navbar-toggler .close-icon {
+      font-size: 1.8rem;
+      color: ##000000 !important;
+    }
+
+    .navbar-toggler.toggled .navbar-toggler-icon {
+      display: none;
+    }
+
+    .navbar-toggler.toggled .close-icon {
+      display: inline;
+    }
+  @media (max-width: 991.98px) {
+    .navbar-collapse {
+      transform-origin: top right;
+      transform: scaleY(0.95) rotateX(-10deg);
+      opacity: 0;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .navbar-collapse.show {
+      transform: scaleY(1) rotateX(0deg);
+      opacity: 1;
+    }
+  }
+
+
+  /* 3D Button Style */
+  .btn-3d {
+    position: relative;
+    background: linear-gradient(to bottom, #0d575b, #2b8f95);
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 0 #288d94;
+    transition: all 0.2s ease-in-out;
+    overflow: hidden;
+  }
+
+  /* Gloss overlay */
+  .btn-3d::before {
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    filter: brightness(40%);
+    height: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px 8px 0 0;
+    pointer-events: none;
   }
 
-    .logo-overlay {
-      position: absolute;
-      top: 20px;
-      left: 30px;
-      color: white;
-      font-size: 1.5rem;
-      font-weight: bold;
-      z-index: 10;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-    }
-
-    .hero-content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: white;
-    }
-
-    .card-3d {
-      transition: transform .3s, box-shadow .3s;
-    }
-
-    .card-3d:hover {
-      transform: translateY(-10px) scale(1.05);
-      box-shadow: 0 20px 30px rgba(0,0,0,0.3);
-    }
-
-    .testimonial-img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-  .scroll-wrapper {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.scroll-content {
-  display: flex;
-  white-space: nowrap;
-}
-
-.scroll-track {
-  display: flex;
-  animation: scroll-left 25s linear infinite;
-}
-
-@keyframes scroll-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.brand-card {
-  min-width: 150px;
-  padding: 10px 15px;
-  border: none;
-  background: #f8f9fa;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.brand-card img {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 8px;
-  object-fit: contain;
-}
-
-body.dark-theme {
-  background-color: #0b1e35 !important;
-  color: #ffffff !important;
-}
-
-.dark-theme .bg-white {
-  background-color: #122b47 !important;
-  color: #ffffff !important;
-}
-
-.dark-theme .text-dark {
-  color: #ffffff !important;
-}
-
-.dark-theme .card,
-.dark-theme .modal-content,
-.dark-theme .brand-card {
-  background-color: #1b3552 !important;
-  color: #ffffff !important;
-  border-color: #2a476b !important;
-}
-
-.dark-theme .btn-outline-secondary {
-  color: #ffffff;
-  border-color: #ffffff;
-}
-
-.dark-theme a {
-  color: #a3d0ff !important;
-}
-.hero-title {
-  color: #000 !important; /* Force black in light mode */
-}
-
-body.dark-theme .hero-title {
-  color: #fff !important; /* White in dark mode */
-}
-#themeToggleBtn {
-  color: #000;
-  border-color: #000;
-}
-
-body.dark-theme #themeToggleBtn {
-  color: #fff !important;
-  border-color: #fff !important;
-}
-
-.logo-overlay {
-  color: #000 !important; /* black in light mode */
-  font-size: 1.5rem;
-  font-weight: bold;
-  position: absolute;
-  top: 20px;
-  left: 30px;
-  z-index: 10;
-  text-shadow: 1px 1px 2px rgba(255,255,255,0.4); /* optional light glow */
-}
-
-body.dark-theme .logo-overlay {
-  color: #fff !important; /* white in dark mode */
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
-}
-.hero-content-adjust {
-  margin-top: 80px; /* Adjust as needed */
-}
-.lead {
-  color: #000 !important; /* Black text in light mode */
-}
-
-body.dark-theme .lead {
-  color: #fff !important; /* White text in dark mode */
-}
-.custom-navbar {
-  position: sticky;
-  top: 0;
-  background: linear-gradient(to right, rgba(12, 81, 85, 0.85), rgba(57, 145, 161, 0.75), rgba(12, 81, 85, 0.85));
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-  z-index: 9999;
-  transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
-}
-
-
-/* Glossy shine on top */
-.custom-navbar::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 50%;
-  width: 100%;
-  background: linear-gradient(to right, rgba(255,255,255,0.08), rgba(255,255,255,0.15), rgba(255,255,255,0.08));
-  pointer-events: none;
-  z-index: 0;
-}
-.navbar-nav {
-  position: relative;
-  z-index: 2;
-}
-.custom-navbar .nav-link,
-.custom-navbar .navbar-brand {
-  color: #ffffff !important;
-  font-weight: 600;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-}
-.custom-navbar .nav-link {
-  position: relative;
-  color: #ffffff !important;
-  font-weight: 600;
-  margin-left: 15px;
-  transition: all 0.3s ease;
-  padding: 8px 12px;
-  border-radius: 6px;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-  z-index: 1;
-}
-
-.custom-navbar .nav-link::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -5%;
-  width: 110%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.15);
-  transform: skewX(-20deg) scaleX(0);
-  transition: transform 0.4s ease;
-  border-radius: 6px;
-  z-index: -1;
-}
-
-.custom-navbar .nav-link:hover::before {
-  transform: skewX(-20deg) scaleX(1);
-}
-
-.custom-navbar .nav-link:hover {
-  color: #ffffff !important;
-  text-shadow: 0 0 8px #ffffff, 0 0 12px #7fffd4;
-  font-weight: 700;
-}
-
-.custom-navbar .nav-link {
-  color: #ffffff !important; /* light blue/navy text */
-  font-weight: 500;
-  margin-left: 15px;
-  transition: color 0.3s ease;
-}
-
-.custom-navbar .nav-link:hover,
-.custom-navbar .nav-link.active {
-  color: #ffffff !important;
-}
-
-.custom-navbar .navbar-brand {
-  color: #ffffff !important;
-  font-size: 1.2rem;
-}
-  .custom-toggler-icon {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255,255,255,0.7)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-    width: 1.5em;
-    height: 1.5em;
+  .btn-3d:hover {
+    background: linear-gradient(to bottom, #0d575b, #2b8f95);
+    color: #fff;
+    filter: brightness(1.1);
   }
 
-  .navbar-toggler .close-icon {
-    font-size: 1.8rem;
-    color: white;
+  .btn-3d:active {
+    box-shadow: 0 2px 0 #0d575b;
+    transform: translateY(3px);
   }
 
-  .navbar-toggler.toggled .navbar-toggler-icon {
-    display: none;
+  /* Glossy Modern Font Style */
+  .glossy-text {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    background: linear-gradient(145deg, #00c6ff, #0072ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
   }
 
-  .navbar-toggler.toggled .close-icon {
-    display: inline;
-  }
-@media (max-width: 991.98px) {
-  .navbar-collapse {
-    transform-origin: top right;
-    transform: scaleY(0.95) rotateX(-10deg);
+  /* 3D pop animation on load */
+  .animate-fade-3d {
     opacity: 0;
-    transition: all 0.4s ease-in-out;
+    transform: scale(0.95) translateY(20px);
+    animation: fadeInPop 0.8s ease-out forwards;
   }
 
-  .navbar-collapse.show {
-    transform: scaleY(1) rotateX(0deg);
-    opacity: 1;
+  @keyframes fadeInPop {
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
   }
-}
+    section {
+      padding: 60px 0;
+    }
 
-     
-/* 3D Button Style */
-.btn-3d {
-  position: relative;
-  background: linear-gradient(to bottom, #0d575b, #2b8f95);
-  border: none;
-  color: #fff;
-  padding: 10px 20px;
-  font-weight: 600;
-  font-size: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 5px 0 #288d94;
-  transition: all 0.2s ease-in-out;
-  overflow: hidden;
-}
+    .section-light {
+      background-color: #f8f9fa;
+    }
 
-/* Gloss overlay */
-.btn-3d::before {
+    .section-dark {
+      background-color: #343a40;
+      color: #ffffff;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+  .whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    background-color: #25d366;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+  }
+
+  .whatsapp-float img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .whatsapp-float:hover {
+    transform: scale(1.1);
+  }
+  #goTopBtn {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    z-index: 999;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    color: #0d575b;
+    border: none;
+    border-radius: 50%;
+    font-size: 30px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Gloss shine */
+  #goTopBtn::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 48px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    transform: rotate(-25deg);
+    pointer-events: none;
+  }
+
+  #goTopBtn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .service-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+.hero::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
+  height: 100%;
   width: 100%;
-  height: 50%;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 8px 8px 0 0;
-  pointer-events: none;
+  background: rgba(0, 0, 0, 0.4); /* darkness level (0.4 = 90%) */
+  z-index: 0;
 }
-
-.btn-3d:hover {
-  background: linear-gradient(to bottom, #0d575b, #2b8f95);
-  color: #fff;
-  filter: brightness(1.1);
-}
-
-.btn-3d:active {
-  box-shadow: 0 2px 0 #0d575b;
-  transform: translateY(3px);
-}
-
-/* Glossy Modern Font Style */
-.glossy-text {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: 800;
-  font-size: 2rem;
-  background: linear-gradient(145deg, #00c6ff, #0072ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-}
-
-/* 3D pop animation on load */
-.animate-fade-3d {
-  opacity: 0;
-  transform: scale(0.95) translateY(20px);
-  animation: fadeInPop 0.8s ease-out forwards;
-}
-
-@keyframes fadeInPop {
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-  section {
-    padding: 60px 0;
-  }
-
-  .section-light {
-    background-color: #f8f9fa;
-  }
-
-  .section-dark {
-    background-color: #343a40;
-    color: #ffffff;
-  }
-  html {
-    scroll-behavior: smooth;
-  }
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 999;
-  background-color: #25d366;
-  border-radius: 50%;
-  padding: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
-}
-
-.whatsapp-float img {
-  width: 40px;
-  height: 40px;
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.1);
-}
-#goTopBtn {
-  position: fixed;
-  bottom: 25px;
-  left: 25px;
-  z-index: 999;
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(145deg, #ffffff, #e6e6e6);
-  color: #0d575b;
-  border: none;
-  border-radius: 50%;
-  font-size: 30px;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  transition: all 0.3s ease-in-out;
-}
-
-/* Gloss shine */
-#goTopBtn::before {
-  content: '';
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  width: 48px;
-  height: 20px;
-  background: rgba(255, 255, 255, 0.4);
-  border-radius: 50%;
-  transform: rotate(-25deg);
-  pointer-events: none;
-}
-
-#goTopBtn:hover {
-  transform: scale(1.08);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-}
-
-.service-wrapper {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding-left: 15px;
-  padding-right: 15px;
+.hero .container {
+  position: relative;
+  z-index: 1; /* ensures text stays above overlay */
 }
 
 
-  </style>
+    </style>
 
-</head> 
-  
-  <!-- Navigation Bar -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm custom-navbar">
-  <div class="container">
-    <a class="navbar-brand fw-bold" href="#home">Bruhi Repacking</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> 
-      <span class="navbar-toggler-icon custom-toggler-icon"></span>
-<span class="close-icon d-none">&times;</span>
+  </head> 
 
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" href="#home">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" onclick="document.getElementById('services').scrollIntoView({ behavior: 'smooth' }); return false;">Our Services</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" onclick="document.getElementById('team').scrollIntoView({ behavior: 'smooth' }); return false;">Our Team</a>
-        </li>
-        <li class="nav-item"> 
-          <a class="nav-link" href="#" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); return false;">Contact Us</a> 
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-
-<!-- Consultation Modal -->
-<div class="modal fade" id="consultationModal" tabindex="-1" aria-labelledby="consultationModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content border-0 shadow-lg bg-white">
-      <div class="modal-header bg-white border-bottom">
-        <h5 class="modal-title" id="consultationModalLabel">Request a Consultation</h5>
-        
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body text-center py-4">
-        <p class="mb-4 d-flex align-items-center justify-content-center">
-          <i class="bi bi-envelope-fill text-primary fs-5 me-2"></i>
-          <!--<a href="mailto:info@apexworkforcesolutions.com" class="text-dark text-decoration-none fs-5">
-            info@apexworkforcesolutions.com
-          </a>-->
-        </p>
-        <p class="d-flex align-items-center justify-content-center">
-          <i class="bi bi-telephone-fill text-success fs-5 me-2"></i>
-          <a href="tel:+1234567890" class="text-dark text-decoration-none fs-5">
-            +1 (123) 456-7890
-          </a>
-        </p>
-      </div>
-      <div class="modal-footer bg-white border-top justify-content-center">
-        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-<body>
-
-<!-- Logo text overlay 
-<div class="logo-overlay">Bruhi Repacking</div>-->
-
-<!-- Dark Mode Toggle Button 
-<button id="themeToggleBtn" class="btn btn-sm btn-outline-dark position-fixed top-0 end-0 m-3 z-3">
-  Dark Mode
-</button>-->
-
-
-<section id="home" class="hero">
-  <div class="container h-100 d-flex align-items-center">
-    <div class="row align-items-center w-100 text-white">
-
-      <!-- Text Content -->
-      <div class="col-md-6 order-2 order-md-1 text-center text-md-start d-flex flex-column justify-content-center">
-        <h1 class="display-6 fw-bold hero-title mb-3 mt-5 pt-3">
-Connecting Businesses with Top-Tier Talent</h1>
-
-        <!-- Image in Mobile -->
-        <div class="d-block d-md-none mb-3 mt-2">
-          <img src="https://raw.githubusercontent.com/fahadrafique/bruhi/refs/heads/main/PACK1_AI.jpg" alt="Workforce" class="img-fluid" style="max-height: 250px;">
-        </div>
-<p class="lead mb-3" style="color: #000;">Streamlining your hiring process and delivering exceptional workforce solutions.</p>
-
-
-<!-- Button -->
-<div class="d-flex justify-content-md-start justify-content-center">
-  <a href="#" 
-     class="btn btn-3d btn-primary mt-2 px-4 py-2 fs-6"
-     data-bs-toggle="modal" 
-     data-bs-target="#consultationModal"
-     style="white-space: nowrap;">
-    Request a Consultation
-  </a>
-</div>  
-
-      </div> 
-      <!-- Desktop Image -->
-      <div class="col-md-6 order-1 order-md-2 d-none d-md-block text-center">
-        <img src="https://raw.githubusercontent.com/fahadrafique/bruhi/refs/heads/main/PACK1_AI.jpg" alt="Workforce" class="img-fluid" style="max-height: 400px;">
-      </div>
-
-    </div>
-  </div>
-</section>
-<!---------------------->
-<!--Trusted by Leading Brands -->
-<div class="bg-white py-4 trusted-section">
-  <div class="container">
-    <h5 class="text-center mb-4 fw-semibold">Trusted by Leading Brands</h5>
-<div class="scroll-wrapper overflow-hidden">
-  <div class="scroll-content d-flex justify-content-center align-items-center">
-    <div class="scroll-track d-flex justify-content-center">
- 
-          <div class="card brand-card mx-2 text-center">
-            <img src="https://cdn-icons-png.flaticon.com/512/732/732221.png" alt="Microsoft">
-            <p class="mb-0">Microsoft</p>
-          </div>
-          <div class="card brand-card mx-2 text-center">
-            <img src="https://cdn-icons-png.flaticon.com/512/888/888879.png" alt="Amazon">
-            <p class="mb-0">Amazon</p>
-          </div>
-          <div class="card brand-card mx-2 text-center">
-            <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="Google">
-            <p class="mb-0">Google</p>
-          </div>
-          <div class="card brand-card mx-2 text-center">
-            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111398.png" alt="Netflix">
-            <p class="mb-0">Netflix</p>
-          </div>
-          <div class="card brand-card mx-2 text-center">
-            <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Apple">
-            <p class="mb-0">Apple</p>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-  
- 
-  <!-- Services Section - Full Width Alternating Cards -->
-<!-- Services Section - Modern Alternating with Animated GIFs -->
-<!--------->
-<!--------->
-<!--------->
-<!--------
-  services--> 
-<!--------->
-<!--------->
-<!--------->
-<!--------->
-<section id="services" class="pt-5" >
-  <div class="service-wrapper">
-     <!-- S<h2 class="text-center mb-5">Our Services</h2>-->
-<div class="services-heading text-center my-5">
-  <div class="services-icon mb-2">
-    <i class="bi bi-box-seam"></i> <!-- Bootstrap icon for box -->
-  </div>
-  <h2 class="glossy-text mb-0">Our Services</h2>
-  <p class="section-subtitle">What we offer to empower your business</p>
-</div>
-
-  <!-- Service 1 -->
-  <div class="py-5 bg-service-light">
+    <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm custom-navbar">
     <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-6 text-start">
-          <h3>Custom Packing</h3>
-          <p>Transform your packaging with bespoke cartoon designs that capture your brand's personality and charm your customers.</p>
-        </div>
-        <div class="col-md-6 text-center">
-          <img src="https://raw.githubusercontent.com/fahadrafique/bruhi/refs/heads/main/packing1.png" alt="Specialized Recruitment" class="img-fluid" style="max-height: 300px;">
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Service 2 -->
-  <div class="py-5 bg-white">
-    <div class="container">
-      <div class="row align-items-center flex-md-row-reverse">
-        <div class="col-md-6 text-start">
-          <h3>Eco-Friendly Wrapping</h3>
-          <p>We use recyclable, sustainable materials to protect both your items and the environment.</p>
-        </div>
-        <div class="col-md-6 text-center">
-          <img src="https://raw.githubusercontent.com/fahadrafique/bruhi/refs/heads/main/packing3.jpg" alt="Temporary Staffing" class="img-fluid" style="max-height: 300px;">
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Service 3 -->
-  <div class="py-5 bg-service-light">
-
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-6 text-start">
-          <h3>Fast Turnaround</h3>
-          <p>We guarantee quick, high-quality repacking and delivery service for businesses and individuals.</p>
-        </div>
-        <div class="col-md-6 text-center">
-          <img src="https://raw.githubusercontent.com/fahadrafique/bruhi/refs/heads/main/packing2.jpg" alt="Permanent Placement" class="img-fluid" style="max-height: 300px;">
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
-</section>
-  
-<!--------->
-<!--------->
-<!--------->
-<!-- TEAM  
-<!--------->
-<!--------->
-<!---------> 
-<section id="team" class="py-5 bg-light" style="scroll-margin-top: 80px;">
-  <div class="container text-center">
-    <div class="services-heading text-center my-5">
-      <div class="services-icon mb-2">
-        <i class="bi bi-box-seam"></i> <!-- Bootstrap icon for box -->
-      </div>
-      <h2 class="glossy-text mb-0">Our Team</h2>
-      <p class="section-subtitle">The Professionals Who Truly Understand Your Business.</p>
-    </div>
-    <div class="row g-4">
-
-      <!-- Team Member 1 -->
-      <div class="col-md-3 col-sm-6">
-        <div class="card card-3d h-100 p-3">
-          <img src="https://randomuser.me/api/portraits/men/32.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 100px; height: 100px; object-fit: cover;" alt="John">
-          <div class="card-body text-center">
-            <h5 class="card-title mb-1">John Smith</h5>
-            <p class="mb-1">📞 +971 50 111 2233</p>
-            <p class="text-muted">Operations Manager</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Team Member 2 -->
-      <div class="col-md-3 col-sm-6">
-        <div class="card card-3d h-100 p-3">
-          <img src="https://randomuser.me/api/portraits/women/44.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 100px; height: 100px; object-fit: cover;" alt="Sarah">
-          <div class="card-body text-center">
-            <h5 class="card-title mb-1">Sarah Ali</h5>
-            <p class="mb-1">📞 +971 50 222 3344</p>
-            <p class="text-muted">HR Supervisor</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Team Member 3 -->
-      <div class="col-md-3 col-sm-6">
-        <div class="card card-3d h-100 p-3">
-          <img src="https://randomuser.me/api/portraits/men/76.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 100px; height: 100px; object-fit: cover;" alt="Ahmed">
-          <div class="card-body text-center">
-            <h5 class="card-title mb-1">Ahmed Khan</h5>
-            <p class="mb-1">📞 +971 50 333 4455</p>
-            <p class="text-muted">Logistics Head</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Team Member 4 -->
-      <div class="col-md-3 col-sm-6">
-        <div class="card card-3d h-100 p-3">
-          <img src="https://randomuser.me/api/portraits/women/68.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 100px; height: 100px; object-fit: cover;" alt="Fatima">
-          <div class="card-body text-center">
-            <h5 class="card-title mb-1">Fatima Noor</h5>
-            <p class="mb-1">📞 +971 50 444 5566</p>
-            <p class="text-muted">Client Relations</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- Testimonials Section 
-<section id="testimonials" class="py-5">
-  <div class="container text-center">
-    <h2 class="mb-5">Client Testimonials</h2>
-    <div class="card shadow mx-auto p-4" style="max-width:700px;">
-      <img src="https://randomuser.me/api/portraits/men/10.jpg" class="testimonial-img mx-auto mb-3">
-      <blockquote>"Apex Workforce Solutions consistently provided us with outstanding professionals. Highly recommended!"</blockquote>
-      <footer>– Fahad, CEO at Aorbe Global LLC</footer>
-    </div>
-  </div>
-</section>-->
-
-<!-- Contact Section 
-<section id="contact" class="py-5 bg-dark text-white text-center">
-  <div class="container">
-    <h2>Contact Us</h2>
-    <!--<p>Email: <a href="mailto:info@apexworkforcesolutions.com" class="text-warning">info@apexworkforcesolutions.com</a></p>
-    <p>Phone: +971 50 768 3592</p>
-    <a href="mailto:info@apexworkforcesolutions.com" class="btn btn-warning btn-lg mt-3">Get in Touch</a>
-  </div>
-</section>-->
-
- <section id="contact" class="py-5 bg-dark text-white text-center">
-  <div class="container">
-    <h2 class="mb-4">Contact Us</h2>
-    <p class="mb-2">Phone: +971 50 768 3592</p>
-
-    <!-- Google Map Embed -->
-    <div class="mt-4">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3609.978008651765!2d55.2707824!3d25.2048496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f4348659b6ab7%3A0xc3d94ad6a3ccfcae!2sBurj%20Khalifa!5e0!3m2!1sen!2sae!4v1681211123456"
-        width="100%" height="350" style="border:0; border-radius:10px;"
-        allowfullscreen="" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
-  </div>
-</section> 
-  
-<!-- Footer -->
-<footer class="bg-secondary text-center text-white py-3">
-  &copy; 2025 Adorbe Global LLC. All Rights Reserved.
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-  const themeBtn = document.getElementById('themeToggleBtn');
-  themeBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark-theme');
-    themeBtn.innerText = document.body.classList.contains('dark-theme') ? 'Light Mode' : 'Dark Mode';
-  });
-  </script>
-<script>
-  const toggler = document.querySelector('.navbar-toggler');
-  const navbarCollapse = document.getElementById('navbarNav');
-
-  toggler.addEventListener('click', () => {
-    toggler.classList.toggle('toggled');
-  });
-
-  // Auto-close menu and reset icon when a link is clicked (mobile)
-  document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      const isShown = navbarCollapse.classList.contains('show');
-      if (isShown) {
-        const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-        bsCollapse.hide();
-        toggler.classList.remove('toggled');
-      }
-    });
-  });
-</script>
-<a href="https://wa.me/971553223628" target="_blank" class="whatsapp-float" id="whatsappLink" title="Chat with us on WhatsApp">
-  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
+      <a class="navbar-brand d-flex align-items-center" href="#home">
+  <img src="https://raw.githubusercontent.com/fahadrafique/bruhi/refs/heads/main/bruhi_logo.png" alt="Bruhi Repacking Logo" height="40" class="me-2"> 
 </a>
-<script>
-  document.getElementById("whatsappLink").addEventListener("click", function (e) {
-    setTimeout(function () {
-      if (!document.hasFocus()) return; // if browser lost focus, WhatsApp opened
-      alert("It looks like WhatsApp is blocked on your network. Please try from your mobile device.");
-    }, 2000);
-  });
-</script>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> 
+        <span class="navbar-toggler-icon custom-toggler-icon"></span>
+  <span class="close-icon d-none">&times;</span>
 
-<button id="goTopBtn" title="Go to top">
-  <i class="bi bi-arrow-up-short"></i>
-</button>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="document.getElementById('services').scrollIntoView({ behavior: 'smooth' }); return false;">Our Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="document.getElementById('team').scrollIntoView({ behavior: 'smooth' }); return false;">Our Team</a>
+          </li>
+          <li class="nav-item"> 
+            <a class="nav-link" href="#" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); return false;">Contact Us</a> 
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-<script>
-  const goTopBtn = document.getElementById("goTopBtn");
 
-  window.addEventListener('scroll', function () {
-    goTopBtn.style.display = (window.scrollY > 300) ? "flex" : "none";
-  });
+  <!-- Consultation Modal -->
+  <div class="modal fade" id="consultationModal" tabindex="-1" aria-labelledby="consultationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg bg-white">
+        <div class="modal-header bg-white border-bottom">
+          <h5 class="modal-title" id="consultationModalLabel">Request a Consultation</h5>
 
-  goTopBtn.addEventListener("click", function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-</script>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center py-4">
+          <p class="mb-4 d-flex align-items-center justify-content-center">
+            <i class="bi bi-envelope-fill text-primary fs-5 me-2"></i>
+            <!--<a href="mailto:info@apexworkforcesolutions.com" class="text-dark text-decoration-none fs-5">
+              info@apexworkforcesolutions.com
+            </a>-->
+          </p>
+          <p class="d-flex align-items-center justify-content-center">
+            <i class="bi bi-telephone-fill text-success fs-5 me-2"></i>
+            <a href="tel:+1234567890" class="text-dark text-decoration-none fs-5">
+              +1 (123) 456-7890
+            </a>
+          </p>
+        </div>
+        <div class="modal-footer bg-white border-top justify-content-center">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-</body>
-</html>
+
+  <body>
+
+  <!-- Logo text overlay 
+  <div class="logo-overlay">Bruhi Repacking</div>-->
+
+  <!-- Dark Mode Toggle Button 
+  <button id="themeToggleBtn" class="btn btn-sm btn-outline-dark position-fixed top-0 end-0 m-3 z-3">
+    Dark Mode
+  </button>-->
+
+
+<section id="home" class="hero d-flex align-items-center" style="
+  background: url('https://raw.githubusercontent.com/fahadrafique/bruhi/refs/heads/main/pack1.jpeg') center center / cover no-repeat;
+  min-height: 100vh;
+  width: 100%;
+  margin-top: 0;
+  padding-top: 0;
+  position: relative;
+  z-index: 1;
+">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 text-start d-flex flex-column justify-content-center" style="padding-top: 120px;">
+        <h1 class="fw-bold hero-title mb-4" style="font-size: 3rem; color: white !important;">
+          Efficient packing and delivery solutions
+        </h1>
+        <p class="lead mb-3" style="font-size: 1.5rem; color: white !important;">
+          Streamlining your packing process and delivering exceptional workforce solutions.
+        </p>
+        <a href="#"
+           class="btn btn-3d btn-primary mt-2 px-4 py-2 fs-5"
+           data-bs-toggle="modal"
+           data-bs-target="#consultationModal">
+          Request a Consultation
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+  <!---------------------->
+  <!--Trusted by Leading Brands -->
+  <div class="bg-white py-4 trusted-section">
+    <div class="container">
+      <h5 class="text-center mb-4 fw-semibold">Trusted by Leading Brands</h5>
+  <div class="scroll-wrapper overflow-hidden">
+    <div class="scroll-content d-flex justify-content-center align-items-center">
+      <div class="scroll-track d-flex justify-content-center">
+
+            <div class="card brand-card mx-2 text-center">
+              <img src="https://cdn-icons-png.flaticon.com/512/732/732221.png" alt="Microsoft">
+              <p class="mb-0">Microsoft</p>
+            </div>
+            <div class="card brand-card mx-2 text-center">
+              <img src="https://cdn-icons-png.flaticon.com/512/888/888879.png" alt="Amazon">
+              <p class="mb-0">Amazon</p>
+            </div>
+            <div class="card brand-card mx-2 text-center">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="Google">
+              <p class="mb-0">Google</p>
+            </div>
+            <div class="card brand-card mx-2 text-center">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111398.png" alt="Netflix">
+              <p class="mb-0">Netflix</p>
+            </div>
+            <div class="card brand-card mx-2 text-center">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Apple">
+              <p class="mb-0">Apple</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <!-- Services Section - Full Width Alternating Cards -->
+  <!-- Services Section - Modern Alternating with Animated GIFs -->
+  <!--------->
+  <!--------->
+  <!--------->
+  <!--------
+    services--> 
+  <!--------->
+  <!--------->
+  <!--------->
+  <!--------->
+  <section id="services" class="pt-5" >
+    <div class="service-wrapper">
+       <!-- S<h2 class="text-center mb-5">Our Services</h2>-->
+  <div class="services-heading text-center my-5">
+    <div class="services-icon mb-2">
+      <i class="bi bi-box-seam"></i> <!-- Bootstrap icon for box -->
+    </div>
+    <h2 class="glossy-text mb-0">Our Services</h2>
+    <p class="section-subtitle">What we offer to empower your business</p>
+  </div>
+
+    <!-- Service 1 -->
+    <div class="py-5 bg-service-light">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-start">
+            <h3>Your go-to for professional packing</h3>
+            <p>At Bruhi Repacking, we specialize in delivering top-notch packing services tailored to meet your needs. Based in Sharjah, AE, our team of experts ensures that your goods are securely repacked and delivered to your site, allowing you to focus on what truly matters. With a commitment to quality and efficiency, we take pride in our ability to handle any packing challenge with precision. Experience the difference with Bruhi Repacking, where your satisfaction is our priority.</p>
+          </div>
+          <div class="col-md-6 text-center">
+            <img src="https://raw.githubusercontent.com/fahadrafique/bruhi/refs/heads/main/pack2.jpeg" alt="Specialized Recruitment" class="img-fluid" style="max-height: 300px;">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 2 -->
+    <div class="py-5 bg-white">
+      <div class="container">
+        <div class="row align-items-center flex-md-row-reverse">
+          <div class="col-md-6 text-start">
+            <h3>Professional packing services</h3>
+            <p>At Bruhi Repacking, we specialize in providing professional packing services that ensure your goods are securely packed and ready for transport. Our experienced team utilizes high-quality materials and techniques tailored to the unique requirements of each item, whether fragile or robust. We understand the importance of protecting your belongings during transit, and our meticulous approach guarantees that your products arrive at their destination in pristine condition. Let us take the hassle out of packing, so you can focus on what truly matters—your business and your peace of mind.</p>
+          </div>
+          <div class="col-md-6 text-center">
+            <img src="https://raw.githubusercontent.com/fahadrafique/bruhi/refs/heads/main/pack3.jpeg" alt="Temporary Staffing" class="img-fluid" style="max-height: 300px;">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 3 -->
+    <div class="py-5 bg-service-light">
+
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-start">
+            <h3>Custom repacking solutions</h3>
+            <p>Bruhi Repacking excels in providing custom repacking solutions designed to meet the specific needs of your products. We recognize that not all items are created equal, and our team is dedicated to delivering personalized repacking services that accommodate various sizes, shapes, and materials. By utilizing the latest technology and industry best practices, we ensure your products are not only repacked efficiently but also displayed attractively for retail or storage. Trust us to enhance the appeal of your goods while ensuring their safety during transit and handling.</p>
+          </div>
+          <div class="col-md-6 text-center">
+            <img src="https://raw.githubusercontent.com/fahadrafique/bruhi/refs/heads/main/pack4.jpeg" alt="Permanent Placement" class="img-fluid" style="max-height: 300px;">
+          </div>
+        </div>
+        
+        
+    <!-- Service 2 -->
+    <div class="py-5 bg-white">
+      <div class="container">
+        <div class="row align-items-center flex-md-row-reverse">
+          <div class="col-md-6 text-start">
+            <h3>On-site delivery services</h3>
+            <p>Our on-site delivery services at Bruhi Repacking provide a seamless solution for transporting your packed goods directly to your location. We understand the urgency of timely deliveries, and our dedicated logistics team ensures that your items reach you safely and promptly. With a focus on efficiency and reliability, we handle every aspect of the delivery process, from loading to transportation, ensuring that your products arrive in perfect condition. Count on us to deliver your packed goods exactly when and where you need them, enhancing your operational efficiency.</p>
+          </div>
+          <div class="col-md-6 text-center">
+            <img src="https://raw.githubusercontent.com/fahadrafique/bruhi/refs/heads/main/pack5.jpeg" alt="Temporary Staffing" class="img-fluid" style="max-height: 300px;">
+          </div>
+        </div>
+      </div>
+    </div>
+        
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!--------->
+  <!--------->
+  <!--------->
+  <!-- TEAM  
+  <!--------->
+  <!--------->
+  <!---------> 
+  <section id="team" class="py-5 bg-light" style="scroll-margin-top: 80px;">
+    <div class="container text-center">
+      <div class="services-heading text-center my-5">
+        <div class="services-icon mb-2">
+          <i class="bi bi-box-seam"></i> <!-- Bootstrap icon for box -->
+        </div>
+        <h2 class="glossy-text mb-0">Our Team</h2>
+        <p class="section-subtitle">The Professionals Who Truly Understand Your Business.</p>
+      </div>
+      <div class="row g-4">
+
+        <!-- Team Member 1 -->
+        <div class="col-md-3 col-sm-6">
+          <div class="card card-3d h-100 p-3">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 100px; height: 100px; object-fit: cover;" alt="John">
+            <div class="card-body text-center">
+              <h5 class="card-title mb-1">John Smith</h5>
+              <p class="mb-1">📞 +971 50 111 2233</p>
+              <p class="text-muted">Operations Manager</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="col-md-3 col-sm-6">
+          <div class="card card-3d h-100 p-3">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 100px; height: 100px; object-fit: cover;" alt="Sarah">
+            <div class="card-body text-center">
+              <h5 class="card-title mb-1">Sarah Ali</h5>
+              <p class="mb-1">📞 +971 50 222 3344</p>
+              <p class="text-muted">HR Supervisor</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="col-md-3 col-sm-6">
+          <div class="card card-3d h-100 p-3">
+            <img src="https://randomuser.me/api/portraits/men/76.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 100px; height: 100px; object-fit: cover;" alt="Ahmed">
+            <div class="card-body text-center">
+              <h5 class="card-title mb-1">Ahmed Khan</h5>
+              <p class="mb-1">📞 +971 50 333 4455</p>
+              <p class="text-muted">Logistics Head</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team Member 4 -->
+        <div class="col-md-3 col-sm-6">
+          <div class="card card-3d h-100 p-3">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 100px; height: 100px; object-fit: cover;" alt="Fatima">
+            <div class="card-body text-center">
+              <h5 class="card-title mb-1">Fatima Noor</h5>
+              <p class="mb-1">📞 +971 50 444 5566</p>
+              <p class="text-muted">Client Relations</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Testimonials Section 
+  <section id="testimonials" class="py-5">
+    <div class="container text-center">
+      <h2 class="mb-5">Client Testimonials</h2>
+      <div class="card shadow mx-auto p-4" style="max-width:700px;">
+        <img src="https://randomuser.me/api/portraits/men/10.jpg" class="testimonial-img mx-auto mb-3">
+        <blockquote>"Apex Workforce Solutions consistently provided us with outstanding professionals. Highly recommended!"</blockquote>
+        <footer>– Fahad, CEO at Aorbe Global LLC</footer>
+      </div>
+    </div>
+  </section>-->
+
+  <!-- Contact Section 
+  <section id="contact" class="py-5 bg-dark text-white text-center">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <!--<p>Email: <a href="mailto:info@apexworkforcesolutions.com" class="text-warning">info@apexworkforcesolutions.com</a></p>
+      <p>Phone: +971 50 768 3592</p>
+      <a href="mailto:info@apexworkforcesolutions.com" class="btn btn-warning btn-lg mt-3">Get in Touch</a>
+    </div>
+  </section>-->
+
+   <section id="contact" class="py-5 bg-dark text-white text-center">
+    <div class="container">
+      <h2 class="mb-4">Contact Us</h2>
+      <p class="mb-2">Phone: +971 50 768 3592</p>
+
+      <!-- Google Map Embed -->
+      <div class="mt-4">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3609.978008651765!2d55.2707824!3d25.2048496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f4348659b6ab7%3A0xc3d94ad6a3ccfcae!2sBurj%20Khalifa!5e0!3m2!1sen!2sae!4v1681211123456"
+          width="100%" height="350" style="border:0; border-radius:10px;"
+          allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section> 
+
+  <!-- Footer -->
+  <footer class="bg-secondary text-center text-white py-3">
+    &copy; 2025 Adorbe Global LLC. All Rights Reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const themeBtn = document.getElementById('themeToggleBtn');
+    themeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-theme');
+      themeBtn.innerText = document.body.classList.contains('dark-theme') ? 'Light Mode' : 'Dark Mode';
+    });
+    </script>
+  <script>
+    const toggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.getElementById('navbarNav');
+
+    toggler.addEventListener('click', () => {
+      toggler.classList.toggle('toggled');
+    });
+
+    // Auto-close menu and reset icon when a link is clicked (mobile)
+    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        const isShown = navbarCollapse.classList.contains('show');
+        if (isShown) {
+          const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+          bsCollapse.hide();
+          toggler.classList.remove('toggled');
+        }
+      });
+    });
+  </script>
+  <a href="https://wa.me/971553223628" target="_blank" class="whatsapp-float" id="whatsappLink" title="Chat with us on WhatsApp">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
+  </a>
+  <script>
+    document.getElementById("whatsappLink").addEventListener("click", function (e) {
+      setTimeout(function () {
+        if (!document.hasFocus()) return; // if browser lost focus, WhatsApp opened
+        alert("It looks like WhatsApp is blocked on your network. Please try from your mobile device.");
+      }, 2000);
+    });
+  </script>
+
+  <button id="goTopBtn" title="Go to top">
+    <i class="bi bi-arrow-up-short"></i>
+  </button>
+
+  <script>
+    const goTopBtn = document.getElementById("goTopBtn");
+
+    window.addEventListener('scroll', function () {
+      goTopBtn.style.display = (window.scrollY > 300) ? "flex" : "none";
+    });
+
+    goTopBtn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+
+  </body>
+  </html>
